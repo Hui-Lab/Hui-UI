@@ -1,0 +1,12 @@
+[
+  {
+    "chainID": 59140,
+    "chainName": "Linea Goerli Testnet",
+    "iconURL": "https://s2.coinmarketcap.com/static/img/coins/200x200/27657.png"
+  },
+  {
+    "chainID": 1442,
+    "chainName": "Polygon zkEVM Testnet",
+    "iconURL": "https://s3.coinmarketcap.com/static-gravity/image/b8db9a2ac5004c1685a39728cdf4e100.png"
+  }
+]

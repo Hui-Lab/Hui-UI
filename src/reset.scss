@@ -2,4 +2,23 @@ html,
 body {
 	margin: 0;
 	padding: 0;
+	font-family: "Montserrat", sans-serif;
+	
 }
+
+body {
+	&::-webkit-scrollbar {
+		width: 15px;
+
+		&-track {
+			background-color: #d4d4d4;
+		}
+
+		&-thumb {
+			background-color: #fd9c42;
+			border-radius: 10px;
+		}
+	}
+}
+
+

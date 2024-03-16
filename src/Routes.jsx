@@ -1,32 +1,33 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
-import Navbar from "./assets/Component/Navbar/Navbar";
+import Header from "./assets/Component/Header/Header";
+import Exchange from "./assets/Component/Exchange/Exchange";
 import Vault from "./assets/Component/Vault/Vault";
-import Deposit from "./assets/Component/Deposit/Deposit";
+import SideBar from "./assets/Component/SideBar/SideBar";
 
 const router = createBrowserRouter([
 	{
 		path: "/",
-		element: (
-			<>
-				<Navbar></Navbar>
-			</>
-		),
+		element: <Navigate to="/Exchange" />,
+
 	},
 	{
-		path: "/vault",
+		path: "/Exchange",
 		element: (
 			<>
-				<Navbar></Navbar>
-				<Vault></Vault>
+				<Header />
+				<SideBar />
+				<Exchange />
 			</>
 		),
+
 	},
 	{
-		path: "/deposit",
+		path: "/Vault",
 		element: (
 			<>
-				<Navbar></Navbar>
-				<Deposit></Deposit>
+				<Header />
+				<SideBar />
+				<Vault />
 			</>
 		),
 	},

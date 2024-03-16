@@ -1,0 +1,201 @@
+.Exchange {
+    position: relative;
+    margin-left: 200px;
+    margin-top: 100px;
+    background-color: #f8f9fa;
+    min-height: calc(100vh - 141.6px);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .Title {
+        font-size: 2rem;
+        font-style: normal;
+        margin-bottom: 20px;
+    }
+
+    .ExchangeContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        border-radius: 15px;
+        padding: 20px;
+        background-color: white;
+        box-shadow: 0px 0px 10px 0px #d4d4d4;
+
+        
+        .ExchangeInput {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+            width: calc(100% - 40px);
+            padding: 20px;
+
+            .ExchangeInputLabel {
+                font-size: 1.3rem;
+                font-style: normal;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                width: 100%;
+
+                .tokenSymbolContainer {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 10px;
+
+                    img {
+                        width: 36px;
+                        height: 36px;
+                        border-radius: 50%;
+                    }
+                }   
+            }
+
+            input {
+                padding: 10px;  
+                border-radius: 10px;
+                border: 1px solid #ced4da;
+                font-size: 1.5rem;
+                font-style: normal;
+
+                &:focus {
+                    outline: none;
+                    border: 1px solid #f78419;
+                }
+
+                &::placeholder {
+                    font-size: 1.5rem;
+                    font-style: normal;
+                }
+
+                &::-webkit-outer-spin-button,
+                &::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+                }
+
+                &[type=number] {
+                -moz-appearance: textfield;
+                }
+
+            }
+
+        }
+
+        .ArrowContainer {   
+            align-self: center;
+            justify-self: center;
+            align-items: center;
+            justify-items: center;
+            border-radius: 50%;
+            background-color: #f78419;
+            padding: 10px;
+            width: 20px;
+            height: 20px;
+            
+            &:hover {
+                box-shadow: 0 0 2px 2px #e4841088;
+                cursor: pointer;
+            }
+            
+            .icon-down {
+                width: 20px;
+                height: 20px;
+            }
+            
+            .icon-up-down {
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        .ExchangeOutput {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+            width: calc(100% - 40px);
+            padding: 20px;
+
+             .ExchangeOutputLabel {
+                font-size: 1.3rem;
+                font-style: normal;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                width: 100%;
+
+                .tokenSymbolContainer {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 10px;
+                    
+                    img {
+                        width: 36px;
+                        height: 36px;
+                        border-radius: 50%;
+                    }
+                }
+            }
+
+            input {
+                padding: 10px;  
+                border-radius: 10px;
+                border: 1px solid #ced4da;
+                font-size: 1.5rem;
+                font-style: normal;
+
+                &:focus {
+                    outline: none;
+                    border: 1px solid #f78419;
+                }
+
+                &::placeholder {
+                    font-size: 1.5rem;
+                    font-style: normal;
+                }
+
+                 &::-webkit-outer-spin-button,
+                &::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+                }
+
+                &[type=number] {
+                -moz-appearance: textfield;
+                }
+            }
+        }
+        
+        .ExchangeButton {
+            align-self: center;
+            justify-self: center;
+            align-items: center;
+            justify-items: center;
+            border-radius: 15px;
+            background-color: #f78419;
+            padding: 15px 20px;
+            color: white;
+            width: calc(100% - 40px);
+            font-size: 1.5rem;
+            font-style: normal;
+            cursor: pointer;
+            transition: 0.3s;
+            border: none;
+
+            &:hover {
+                background-color: #f78419;
+                transform: scale(1.1);
+            }
+        }
+    }
+
+
+
+}

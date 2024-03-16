@@ -1,0 +1,96 @@
+.Header {
+	position: fixed;
+	top: 0;
+	width: calc(100% - 40px);
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	background-color: white;
+	height: 80px;
+	padding: 10px 20px;
+	border: 1px solid #e9ecef;
+	z-index: 100;
+
+	.NavLeft {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		gap: 10px;
+		padding: 0 20px;
+
+		.logo {
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+		}
+
+		span {
+			font-size: 1.5rem;
+			font-style: normal;
+		}
+	}
+
+	.NavRight {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 30px;
+
+		.ChainSelectDropdown {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			gap: 10px;
+			justify-content: center;
+			padding: 10px 20px;
+			background-color: #f78419d9;
+			border-radius: 15px;
+			color: #fff;
+			font-size: 1rem;
+			font-style: normal;
+			font-weight: 500;
+
+				img {
+					width: 36px;
+					height: 36px;
+					border-radius: 50%;
+				}
+		}
+
+		.ConnectButton {
+			padding: 10px 20px;
+			border-radius: 10px;
+			border: none;
+			cursor: pointer;
+			background-color: #f78419;
+			color: aliceblue;
+			padding: 20px 20px;
+			border-radius: 15px;
+			color: #fff;
+			font-size: 1rem;
+			font-style: normal;
+			font-weight: 500;
+		}
+	}
+}
+
+.ChainSelectDropDownItem {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 10px;
+	padding: 10px 20px;
+	border-radius: 15px;
+	color: #000;
+	font-size: 1rem;
+	font-style: normal;
+	font-weight: 500;
+
+	img {
+		width: 36px;
+		height: 36px;
+		border-radius: 50%;
+	}
+}

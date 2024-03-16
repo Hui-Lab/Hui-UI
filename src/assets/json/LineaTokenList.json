@@ -1,37 +1,37 @@
 [
-  {
-    "symbol": "USDC",
-    "img": "https://s2.coinmarketcap.com/static/img/coins/200x200/3408.png",
-    "name": "USD Coin",
-    "address": "0xf56dc6695cF1f5c364eDEbC7Dc7077ac9B586068",
-    "decimals": 6
-  },
-  {
-    "symbol": "DAI",
-    "img": "https://s2.coinmarketcap.com/static/img/coins/200x200/4943.png",
-    "name": "Dai Stablecoin",
-    "address": "0x8741Ba6225A6BF91f9D73531A98A89807857a2B3",
-    "decimals": 18
-  },
-  {
-    "symbol": "USDT",
-    "img": "https://s2.coinmarketcap.com/static/img/coins/200x200/825.png",
-    "name": "Tether USD",
-    "address": "0x1990BC6dfe2ef605Bfc08f5A23564dB75642Ad73",
-    "decimals": 6
-  },
-  {
-    "symbol": "FRAX",
-    "img": "https://s2.coinmarketcap.com/static/img/coins/200x200/6952.png",
-    "name": "Frax",
-    "address": "0x4Ef6081357fC5546f88AcEf559FF4335F03a88Be",
-    "decimals": 18
-  },
-  {
-    "symbol": "HUI",
-    "img": "/HUI.png",
-    "name": "HUI Token",
-    "address": "0x6F0c5f5bf63A5b3483b157458bcf0F0272F6FaEb",
-    "decimals": 18
-  }
+	{
+		"symbol": "USDC",
+		"img": "https://s2.coinmarketcap.com/static/img/coins/200x200/3408.png",
+		"name": "USD Coin",
+		"address": "0xf56dc6695cF1f5c364eDEbC7Dc7077ac9B586068",
+		"decimals": 6
+	},
+	{
+		"symbol": "DAI",
+		"img": "https://s2.coinmarketcap.com/static/img/coins/200x200/4943.png",
+		"name": "Dai Stablecoin",
+		"address": "0x8741Ba6225A6BF91f9D73531A98A89807857a2B3",
+		"decimals": 18
+	},
+	{
+		"symbol": "USDT",
+		"img": "https://s2.coinmarketcap.com/static/img/coins/200x200/825.png",
+		"name": "Tether USD",
+		"address": "0x1990BC6dfe2ef605Bfc08f5A23564dB75642Ad73",
+		"decimals": 6
+	},
+	{
+		"symbol": "FRAX",
+		"img": "https://s2.coinmarketcap.com/static/img/coins/200x200/6952.png",
+		"name": "Frax",
+		"address": "0x4Ef6081357fC5546f88AcEf559FF4335F03a88Be",
+		"decimals": 18
+	},
+	{
+		"symbol": "HUI",
+		"img": "/HUI.png",
+		"name": "HUI Token",
+		"address": "0x6EA123C594a6b74D1d126d3f0902FD555A4E7091",
+		"decimals": 18
+	}
 ]

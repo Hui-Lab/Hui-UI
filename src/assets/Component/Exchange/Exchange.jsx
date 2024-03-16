@@ -35,7 +35,8 @@ const Exchange = () => {
                 address,
                 token: '0xf56dc6695cF1f5c364eDEbC7Dc7077ac9B586068',
                 chainId: activeChain.chainID
-            })
+            });
+            console.log(balance);
         }
         fetchBalance();
     }, []);

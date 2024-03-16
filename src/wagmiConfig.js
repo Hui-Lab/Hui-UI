@@ -1,12 +1,10 @@
 import { http, createConfig } from "wagmi";
 import { polygonZkEvmTestnet, lineaTestnet } from "wagmi/chains";
-import { injected } from "wagmi/connectors";
+import { createClient } from 'viem';
 
 export const config = createConfig({
   chains: [lineaTestnet, polygonZkEvmTestnet],
-  connectors: [injected()],
-  transports: {
-    lineaTestnet: http(),
-    polygonZkEvmTestnet: http(),
+  client({ chain }) {
+    return createClient({ chain, transport: http() })
   },
 });

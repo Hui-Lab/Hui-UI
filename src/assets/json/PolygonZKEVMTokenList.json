@@ -26,5 +26,12 @@
     "name": "Frax",
     "address": "0x4Ef6081357fC5546f88AcEf559FF4335F03a88Be",
     "decimals": 18
+  },
+  {
+    "symbol": "HUI",
+    "img": "/HUI.png",
+    "name": "HUI Token",
+    "address": "0x69058990c352aEcC7b7aeaC741e7172733D875aB",
+    "decimals": 18
   }
 ]

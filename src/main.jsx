@@ -14,9 +14,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 	<WagmiProvider config={config}>
 		<QueryClientProvider client={queryClient}>
 			<ChainContextProvider>
-				{/* <SignerContextProvider> */}
-					<RouterProvider router={router} />
-				{/* </SignerContextProvider> */}
+				<RouterProvider router={router} />
 			</ChainContextProvider>
 		</QueryClientProvider>
 	</WagmiProvider>

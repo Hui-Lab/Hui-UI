@@ -3,12 +3,12 @@ import Header from "./assets/Component/Header/Header";
 import Exchange from "./assets/Component/Exchange/Exchange";
 import Vault from "./assets/Component/Vault/Vault";
 import SideBar from "./assets/Component/SideBar/SideBar";
+import Loan from "./assets/Component/Loan/Loan";
 
 const router = createBrowserRouter([
 	{
 		path: "/",
 		element: <Navigate to="/Exchange" />,
-
 	},
 	{
 		path: "/Exchange",
@@ -19,7 +19,6 @@ const router = createBrowserRouter([
 				<Exchange />
 			</>
 		),
-
 	},
 	{
 		path: "/Vault",
@@ -28,6 +27,16 @@ const router = createBrowserRouter([
 				<Header />
 				<SideBar />
 				<Vault />
+			</>
+		),
+	},
+	{
+		path: "/Loan",
+		element: (
+			<>
+				<Header />
+				<SideBar />
+				<Loan />
 			</>
 		),
 	},

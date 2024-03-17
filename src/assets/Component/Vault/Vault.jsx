@@ -1,82 +1,195 @@
 import { useState } from "react";
 import "./Vault.scss";
+import { config } from "../../../wagmiConfig";
+import { writeContract, readContract } from "@wagmi/core";
+import { parseUnits } from "viem";
+import VaultABI from "../../json/ABI/Vault.json";
 
-const simulatedHUI = [
+const pseudoHUI = [
 	{
-		name: "USDT HUI",
-		Vaultors: [
-			"0x5B38Da6a701c568545dCfcB03FcB875f56beddC4",
-			"0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2",
-		],
-		token: "USDT",
-		network: "Linea",
+		address: "0x487C79d64484de826eE2405A02a1b8ffC96693B7",
+		HUIInVault: 100,
+		totalFee: 10,
+		currentReward: 5,
+		AlreadyPaid: 5,
+		timeTillNextPay: "1 day"
 	},
 	{
-		name: "USDC HUI",
-		Vaultors: [
-			"0x5B38Da6a701c568545dCfcB03FcB875f56beddC4",
-			"0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2",
-		],
-		token: "USDC",
-		network: "Linea",
+		address: "0x487C79d64484de826eE2405A02a1b8ffC96693B7",
+		HUIInVault: 200,
+		totalFee: 20,
+		currentReward: 10,
+		AlreadyPaid: 0,
+		timeTillNextPay: "N/A"
 	},
 	{
-		name: "DAI HUI",
-		Vaultors: [
-			"0x5B38Da6a701c568545dCfcB03FcB875f56beddC4",
-			"0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2",
-		],
-		token: "DAI",
-		network: "Linea",
+		address: "0x487C79d64484de826eE2405A02a1b8ffC96693B7",
+		HUIInVault: 300,
+		totalFee: 30,
+		currentReward: 15,
+		AlreadyPaid: 10,
+		timeTillNextPay: "1 hour"
 	},
 	{
-		name: "WBTC HUI",
-		Vaultors: [
-			"0x5B38Da6a701c568545dCfcB03FcB875f56beddC4",
-			"0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2",
-		],
-		token: "WBTC",
-		network: "Linea",
+		address: "0x487C79d64484de826eE2405A02a1b8ffC96693B7",
+		HUIInVault: 400,
+		totalFee: 40,
+		currentReward: 20,
+		AlreadyPaid: 0,
+		timeTillNextPay: "N/A"
 	},
 	{
-		name: "ETH HUI",
-		Vaultors: [
-			"0x5B38Da6a701c568545dCfcB03FcB875f56beddC4",
-			"0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2",
-		],
-		token: "ETH",
-		network: "Linea",
-	},
+		address: "0x487C79d64484de826eE2405A02a1b8ffC96693B7",
+		HUIInVault: 500,
+		totalFee: 50,
+		currentReward: 25,
+		AlreadyPaid: 50,
+		timeTillNextPay: "1 minute"
+	}
 ];
 
-export default function Vault() {
-	const [listActiveHUI, setListActiveHUI] = useState(simulatedHUI);
+//address
+//HUIInVault
+//totalFee
+//currentReward
 
-	console.log(listActiveHUI);
+export default function Vault() {
+	const HUIList = pseudoHUI;
+
+	const getVaultAction = (index) => {
+		return HUIList[index].AlreadyPaid === 0 ? "Entry" :
+			HUIList[index].AlreadyPaid === HUIList[index].totalFee ? "Withdraw" : "Pay Fee";
+	}
+
+	const handleEntryVault = async (VaultAddress, period, amountPerPeriod) => {
+		try {
+			const EntryResult = await writeContract(config, {
+				abi: VaultABI,
+				address: VaultAddress,
+				functionName: "entryVault",
+				args: [period, parseUnits(amountPerPeriod, 18)]
+			});
+			console.log(EntryResult);
+		}
+		catch (error) {
+			console.log(error);
+		}
+	}
+
+	const handleWithdrawVault = async (VaultAddress) => {
+		try {
+			const WithdrawResult = await writeContract(config, {
+				abi: VaultABI,
+				address: VaultAddress,
+				functionName: "withdrawWithReward",
+				args: []
+			});
+			console.log(WithdrawResult);
+		}
+		catch (error) {
+			console.log(error);
+		}
+	}
+
+
+
+	const handlePayFee = async (VaultAddress, payAmount) => {
+		try {
+			const PayResult = await writeContract(config, {
+				abi: VaultABI,
+				address: VaultAddress,
+				functionName: "pay",
+				args: [parseUnits(payAmount, 18)]
+			});
+			console.log(PayResult);
+		}
+		catch (error) {
+			console.log(error);
+		}
+	}
 
 	return (
-		<div className="container">
-			{listActiveHUI.length == 0 && <div>No HUI is active</div>}
-			{listActiveHUI.length > 0 &&
-				listActiveHUI.map((hui, hui_id) => {
+		<div className="Vault">
+			<div className="Title">
+				HUI Vaults
+			</div>
+			<div className="VaultGrid">
+				{HUIList.map((VaultItem, index) => {
+					console.log(VaultItem);
 					return (
-						<div className="hui_container" key={hui_id}>
-							<div className="hui_header">
-								<img className="token_logo" src={hui.token + ".png"} />
-								<div style={{ display: "inline-block" }}>{hui.name}</div>
+						<div key={index} className="HUI">
+							<div className="HUIInfo">
+								<span>Address:</span>
+								<span>{VaultItem.address?.slice(0, 4) + "..." + VaultItem.address?.slice(38)}</span>
 							</div>
-							<div className="hui_content">
-								{/* {hui.Vaultors.map((Vaultor, Vaultor_id) => {
-									return <div key={Vaultor_id}>{Vaultor}</div>;
-								})} */}
-								<div>
-									<div className="hui_property_name">Network</div>
-									<div>{hui.network.toString()}</div>
+							<div className="HUIInfo">
+								<span>HUI in Vault:</span>
+								<span>
+									{VaultItem.HUIInVault}
+								</span>
+							</div>
+							<div className="HUIInfo">
+								<span>Total Fee:</span>
+								<span>
+									{VaultItem.totalFee}
+								</span>
+							</div>
+							<div className="HUIInfo">
+								<span>Current Reward:</span>
+								<span>
+									{VaultItem.currentReward}
+								</span>
+							</div>
+							<div className="HUIInfo">
+								<span>Already Paid:</span>
+								<span>
+									{VaultItem.AlreadyPaid}
+								</span>
+							</div>
+							<div className="HUIInfo">
+								<span>Time Till Next Pay:</span>
+								<span>
+									{VaultItem.timeTillNextPay}
+								</span>
+							</div>
+							{getVaultAction(index) === "Entry" && (
+								<div className="EntryInput">
+									<input type="text" placeholder="Period" />
+									<input type="text" placeholder="Amount per period" />
 								</div>
+							)}
+
+							{getVaultAction(index) === "Pay Fee" && (
+								<div className="PayFeeInput">
+									<input type="text" placeholder="Pay Amount" />
+								</div>
+							)}
+
+							<div
+								onClick={() => {
+									const action = getVaultAction(index);
+									switch (action) {
+										case "Entry":
+											handleEntryVault(VaultItem.address);
+											break;
+										case "Withdraw":
+											handleWithdrawVault(VaultItem.address);
+											break;
+										case "Pay Fee":
+											handlePayFee(VaultItem.address);
+											break;
+										default:
+											break;
+									}
+								}}
+								className="HUIButton">
+								{getVaultAction(index)}
 							</div>
 						</div>
-					);
+					)
 				})}
+			</div>
+
 		</div>
 	);
 }

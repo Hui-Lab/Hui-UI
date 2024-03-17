@@ -1,47 +1,73 @@
-.container {
+.Vault {
+	position: relative;
+	margin-left: 200px;
+	margin-top: 100px;
+	background-color: #f8f9fa;
+	min-height: calc(100vh - 201.6px);
+	padding: 50px;
 	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: center;
-	padding: 20px;
-	gap: 20px;
-}
-
-.hui_container {
-	max-width: 300px;
-	padding: 20px;
-	border: 1px solid #ccc;
-	border-radius: 5px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-	margin: 0 auto;
-	font-family: Arial, sans-serif;
-	overflow-wrap: break-word;
-}
-
-.hui_header {
-	display: flex;
+	flex-direction: column;
 	align-items: center;
-}
-
-.hui_content {
-	.hui_property_name {
-		font-size: small;
-		font-style: italic;
+	
+	.Title {
+		font-size: 2rem;
+		font-style: normal;
+		margin-bottom: 20px;
 	}
-}
 
-.token_logo {
-	width: 24px;
-	height: 24px;
-	border-radius: 50%;
-	margin-right: 8px;
-	background-color: #f5f5f5;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	vertical-align: middle;
-	img {
-		width: 16px;
-		height: 16px;
+	.VaultGrid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 75px;
+		width: 100%;
+		margin-top: 20px;
+		align-items: center;
+		justify-content: center;
+		
+
+		.HUI {
+			display: flex;
+			flex-direction: column;
+			gap: 20px;
+			border-radius: 15px;
+			padding: 20px;
+			background-color: white;
+			border: 1px solid #f78419;
+			box-shadow: 0px 0px 2px 1px #f78419;
+
+
+			.HUIInfo {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				justify-content: space-between;
+				
+				span {
+					font-size: 1.3rem;
+					font-weight: 500;
+					font-style: normal;
+				}
+			}
+
+			.HUIButton {
+				display: flex;
+				align-self: center;
+				align-items: center;
+				justify-content: center;
+				width: 100%;
+				padding: 10px;
+				border-radius: 15px;
+				background-color: #f78419;
+				color: #fff;
+				font-size: 1.3rem;
+				font-weight: 500;
+
+				&:hover {
+					opacity: 0.8;
+					scale: 1.01;
+					cursor: pointer;
+				}
+			}
+		}
 	}
 }

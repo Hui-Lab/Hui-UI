@@ -11,7 +11,6 @@ const SideBar = () => {
                 <span className="NavigatorItem" onClick={() => navigate("/Exchange")}>Exchange</span>
                 <span className="NavigatorItem" onClick={() => navigate("/Vault")}>Vault</span>
                 <span className="NavigatorItem" onClick={() => navigate("/loan")}>Loan</span>
-                <span className="NavigatorItem" onClick={() => navigate("/withdraw")}>Withdraw</span>
             </div>
         </div >
     )
